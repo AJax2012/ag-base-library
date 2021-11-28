@@ -1,7 +1,6 @@
 import SectionHeader, { SectionHeaderProps } from "./SectionHeader";
 import { Story, Meta } from "@storybook/react";
 import Link from "next/link";
-import { ThemeProvider } from "next-themes";
 
 export default {
   title: "Components/Text/Section Header",
@@ -9,21 +8,13 @@ export default {
 } as Meta;
 
 const Template: Story<SectionHeaderProps> = (args) => (
-  <ThemeProvider forcedTheme="light" enableSystem={false}>
-    <SectionHeader {...args} />
-  </ThemeProvider>
+  <SectionHeader {...args} />
 );
 
-export const Light = Template.bind({});
-Light.args = {
+export const Default = Template.bind({});
+Default.args = {
   children: "Section Header",
 };
-
-export const Dark: Story<SectionHeaderProps> = (args) => (
-  <ThemeProvider forcedTheme="dark" enableSystem={false}>
-    <SectionHeader {...args}>Section Header</SectionHeader>
-  </ThemeProvider>
-);
 
 export const Hyperlink = Template.bind({});
 Hyperlink.args = {

@@ -34,7 +34,9 @@ export default {
 } as Meta;
 
 export const Default: Story<MiniNavProps> = (args) => (
-  <motion.nav initial={true} animate="open" className="flex flex-col">
-    <MiniNav {...args} />
-  </motion.nav>
+  <ThemeProvider attribute="class">
+    <motion.nav initial={true} animate="open" className="flex flex-col">
+      <MiniNav {...args} />
+    </motion.nav>
+  </ThemeProvider>
 );
