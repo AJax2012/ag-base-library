@@ -1,29 +1,36 @@
-import cn from "classnames";
 import { useMemo } from "react";
 import { useTheme } from "next-themes";
 import { BsMoon, BsSun } from "react-icons/bs";
-import Toggle from "./Toggle";
+import Switch from "react-switch";
 
-const ThemeToggle = () => {
+export interface ThemeToggleProps {
+  isLarge: boolean;
+  id: string;
+}
+
+const ThemeToggle = ({ isLarge, id }: ThemeToggleProps) => {
   const { theme, setTheme } = useTheme();
   const isDark = useMemo(() => theme === "dark", [theme]);
 
   return (
-    <div className="flex lg:my-0 my-3">
-      <BsSun className="my-auto lg:text-xl text-md" />
-      <Toggle
-        isChecked={isDark}
-        handleClick={() => setTheme(isDark ? "light" : "dark")}
-        translationDuration="duration-700"
-        trueColor="bg-blue-700"
-        falseColor="bg-gray-200"
-        inputClasses={cn("lg:w-5 w-3 lg:h-5 h-3", {
-          "lg:ml-1": isDark,
-          "lg:ml-0.5": !isDark,
-        })}
-        wrapperClasses="lg:w-12 w-8 lg:h-6 h-4 lg:mx-3 mx-2"
+    <div className="flex">
+      <Switch
+        id={id}
+        checked={isDark}
+        onChange={() => setTheme(isDark ? "light" : "dark")}
+        aria-label="Theme toggle"
+        value="dark"
+        boxShadow="none"
+        activeBoxShadow="none"
+        onColor="#2563EB"
+        className="mx-auto"
+        height={isLarge ? 28 : 22}
+        width={isLarge ? 56 : 50}
+        uncheckedIcon={
+          <BsSun color="white" className="lg:p-1.5 p-1 w-full h-full" />
+        }
+        checkedIcon={<BsMoon className="lg:p-1.5 p-1 w-full h-full" />}
       />
-      <BsMoon className="my-auto lg:text-xl text-md" />
     </div>
   );
 };

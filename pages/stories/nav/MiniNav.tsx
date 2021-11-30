@@ -37,7 +37,7 @@ const MiniNav = ({ isOpen, links, sticky = false }: MiniNavProps) => (
           "pt-2": !sticky,
         })}
       >
-        <ThemeToggle />
+        <ThemeToggle isLarge={false} id="miniNavThemeToggle" />
         <NavbarLinks links={links} />
       </div>
     </div>

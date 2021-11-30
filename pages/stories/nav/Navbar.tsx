@@ -60,8 +60,8 @@ export default function Navbar({
               </Link>
               <MenuToggle toggle={() => setNavbarOpen(!navbarOpen)} />
             </div>
-            <div className="lg:flex hidden flex-grow items-center justify-end">
-              <ThemeToggle />
+            <div className="lg:flex hidden items-center">
+              <ThemeToggle isLarge={true} id="MainThemeToggle" />
               <NavbarLinks links={allLinks} />
             </div>
           </div>
