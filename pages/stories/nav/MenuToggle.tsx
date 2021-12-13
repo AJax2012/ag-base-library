@@ -16,7 +16,7 @@ const Path = (props: any) => (
 
 const MenuToggle = ({ toggle }: MenuToggleProps) => {
   return (
-    <button onClick={toggle} className="block lg:hidden">
+    <button onClick={toggle}>
       <svg width="23" height="23" viewBox="0 0 23 23">
         <Path
           variants={{

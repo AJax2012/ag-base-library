@@ -2,13 +2,15 @@ import { useMemo } from "react";
 import { useTheme } from "next-themes";
 import { BsMoon, BsSun } from "react-icons/bs";
 import Switch from "react-switch";
+import cn from "classnames";
 
 export interface ThemeToggleProps {
   isLarge: boolean;
   id: string;
+  center?: boolean;
 }
 
-const ThemeToggle = ({ isLarge, id }: ThemeToggleProps) => {
+const ThemeToggle = ({ isLarge, id, center = true }: ThemeToggleProps) => {
   const { theme, setTheme } = useTheme();
   const isDark = useMemo(() => theme === "dark", [theme]);
 
@@ -23,7 +25,7 @@ const ThemeToggle = ({ isLarge, id }: ThemeToggleProps) => {
         boxShadow="none"
         activeBoxShadow="none"
         onColor="#2563EB"
-        className="mx-auto"
+        className={cn({ "mx-auto": center })}
         height={isLarge ? 28 : 22}
         width={isLarge ? 56 : 50}
         uncheckedIcon={

@@ -5,6 +5,7 @@
 :root {
   --background-primary: theme("colors.white");
   --background-accent: theme("colors.gray.200");
+  --background-secondary: theme("colors.gray.500");
 }
 
 .dark {
@@ -18,6 +19,10 @@ body {
 
 .nav {
   background-color: var(--background-accent);
+}
+
+.nav .custom-border-color {
+  border-color: var(--background-secondary);
 }
 
 .theme-toggle.react-toggle--focus .react-toggle-thumb,

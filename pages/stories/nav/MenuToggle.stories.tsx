@@ -19,23 +19,11 @@ export default {
   },
 } as Meta;
 
-export const Light: Story<MenuToggleProps> = (args) => {
+export const Default: Story<MenuToggleProps> = (args) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
     <ThemeProvider forcedTheme="light" enableSystem={false}>
-      <motion.div initial={false} animate={navbarOpen ? "open" : "closed"}>
-        <MenuToggle {...args} toggle={() => setNavbarOpen(!navbarOpen)} />
-      </motion.div>
-    </ThemeProvider>
-  );
-};
-
-export const Dark: Story<MenuToggleProps> = (args) => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
-  return (
-    <ThemeProvider forcedTheme="dark" enableSystem={false}>
       <motion.div initial={false} animate={navbarOpen ? "open" : "closed"}>
         <MenuToggle {...args} toggle={() => setNavbarOpen(!navbarOpen)} />
       </motion.div>

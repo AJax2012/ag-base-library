@@ -1,15 +1,28 @@
 import Link from "next/link";
+import cn from "classnames";
 
 export interface NavbarLinkProps {
   href: string;
   text: string;
+  removeLeftMargin?: boolean;
 }
 
-const NavbarLink = ({ href, text }: NavbarLinkProps) => {
+const NavbarLink = ({
+  href,
+  text,
+  removeLeftMargin = false,
+}: NavbarLinkProps) => {
   return (
     <li className="nav-item">
       <Link href={href}>
-        <a className="prose dark:prose-dark lg:m-0 text-primary lg:ml-5 m-2 flex lg:text-sm uppercase hover:opacity-75">
+        <a
+          className={cn(
+            "prose dark:prose-dark text-primary flex lg:text-sm uppercase hover:opacity-75 my-2",
+            {
+              "lg:m-0 lg:ml-5": !removeLeftMargin,
+            }
+          )}
+        >
           {text}
         </a>
       </Link>

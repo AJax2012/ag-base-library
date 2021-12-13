@@ -13,31 +13,39 @@ export interface MiniNavProps {
 const subMenuAnimate: Variants = {
   open: {
     opacity: 1,
+    height: "auto",
     transition: {
       ease: "easeIn",
       duration: 0.2,
     },
   },
   closed: {
+    height: 0,
     opacity: 0,
   },
 };
 
 const MiniNav = ({ isOpen, links, sticky = false }: MiniNavProps) => (
   <motion.div
-    className="lg:hidden absolute w-50 right-0"
     initial={false}
     animate={isOpen ? "open" : "closed"}
     variants={subMenuAnimate}
   >
-    <div className="flex container justify-end nav">
+    <div className="flex py-2 nav">
       <div
         className={cn("inline", {
           "pt-4": sticky,
           "pt-2": !sticky,
         })}
       >
-        <ThemeToggle isLarge={false} id="miniNavThemeToggle" />
+        <div className="flex text-center">
+          <div className="mr-2 prose dark:prose-dark text-primary lg:text-sm uppercase ">
+            Theme:
+          </div>{" "}
+          <div className="my-auto">
+            <ThemeToggle isLarge={false} id="miniNavThemeToggle" />
+          </div>
+        </div>
         <NavbarLinks links={links} />
       </div>
     </div>
